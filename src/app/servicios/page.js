@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
   title: "Nuestros Servicios — Axis",
@@ -24,15 +25,7 @@ export default function Servicios() {
             {/* 1. Páginas informativas */}
             <div className="service-detail reveal">
               <div className="service-visual">
-                <div className="service-visual-inner">
-                  <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M3 9h18" />
-                    <path d="M9 21V9" />
-                  </svg>
-                  <p>Diseño web profesional</p>
-                </div>
+                <ImageSpot dark ratio="16 / 10" label="Captura: página web" />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -60,14 +53,7 @@ export default function Servicios() {
             {/* 2. Apps con AppSheet */}
             <div className="service-detail reversed reveal">
               <div className="service-visual">
-                <div className="service-visual-inner">
-                  <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" />
-                    <line x1="12" y1="18" x2="12.01" y2="18" />
-                  </svg>
-                  <p>Aplicaciones a la medida</p>
-                </div>
+                <ImageSpot dark ratio="16 / 10" label="Captura: app móvil" />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -94,13 +80,7 @@ export default function Servicios() {
             {/* 3. Automatización */}
             <div className="service-detail reveal">
               <div className="service-visual">
-                <div className="service-visual-inner">
-                  <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                  </svg>
-                  <p>Flujos automatizados</p>
-                </div>
+                <ImageSpot dark ratio="16 / 10" label="Captura: flujo automatizado" />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -126,16 +106,7 @@ export default function Servicios() {
             {/* 4. Agenda de citas */}
             <div className="service-detail reversed reveal">
               <div className="service-visual">
-                <div className="service-visual-inner">
-                  <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                  <p>Reservas en tiempo real</p>
-                </div>
+                <ImageSpot dark ratio="16 / 10" label="Captura: agenda de citas" />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -164,15 +135,7 @@ export default function Servicios() {
             {/* 5. Mejora de procesos */}
             <div className="service-detail reveal">
               <div className="service-visual">
-                <div className="service-visual-inner">
-                  <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07" />
-                  </svg>
-                  <p>Diagnóstico y optimización</p>
-                </div>
+                <ImageSpot dark ratio="16 / 10" label="Captura: diagnóstico" />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -199,15 +162,7 @@ export default function Servicios() {
             {/* 6. Aplicaciones web */}
             <div className="service-detail reversed reveal">
               <div className="service-visual">
-                <div className="service-visual-inner">
-                  <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
-                  <p>Herramientas web propias</p>
-                </div>
+                <ImageSpot dark ratio="16 / 10" label="Captura: app web" />
               </div>
               <div>
                 <div className="service-detail-icon">

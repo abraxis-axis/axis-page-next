@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import DemoTabs from '@/components/DemoTabs';
+import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
   title: "Ejemplos en Vivo — Axis",
@@ -30,6 +31,7 @@ export default function Ejemplos() {
 
       <section className="ejemplos-section demo-container">
         <div className="wrap">
+          <ImageSpot banner label="Imagen: capturas de proyectos" />
           <DemoTabs />
         </div>
       </section>

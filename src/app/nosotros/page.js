@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
   title: "Nosotros — Axis",
@@ -32,11 +33,12 @@ export default function Nosotros() {
               <p>Somos una empresa responsable y formal. Trabajamos con transparencia, plazos reales y comunicación
                 directa — hablas con quien hace el trabajo, no con un intermediario.</p>
             </div>
-            <div className="about-stats">
-              <div className="about-stat">
-                <div className="k">Con base en Tepic, Nayarit</div>
-                <div className="v">Atendemos empresas en toda la república</div>
-              </div>
+              <div className="about-stats">
+                <ImageSpot src="" ratio="16 / 9" label="Foto del equipo Axis" dark />
+                <div className="about-stat">
+                  <div className="k">Con base en Tepic, Nayarit</div>
+                  <div className="v">Atendemos empresas en toda la república</div>
+                </div>
               <div className="about-stat">
                 <div className="k">Páginas web + apps con AppSheet</div>
                 <div className="v">Un solo equipo para tu presencia digital y tu operación</div>

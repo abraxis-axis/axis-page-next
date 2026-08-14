@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import NetworkCanvas from '@/components/NetworkCanvas';
 import ContactForm from '@/components/ContactForm';
+import ImageSpot from '@/components/ImageSpot';
 
 export default function Home() {
   return (
@@ -106,6 +107,7 @@ export default function Home() {
             <h2 id="proceso-heading">Simple, claro y sin sorpresas</h2>
             <p>Así trabajamos contigo, de la primera llamada hasta el lanzamiento.</p>
           </div>
+          <ImageSpot banner label="Imagen: cómo trabajamos" />
           <div className="steps-grid">
             <div className="step-card reveal" style={{ '--d': '0ms' }}>
               <div className="step-num">01</div>
@@ -198,7 +200,7 @@ export default function Home() {
       {/* PRECIOS TEASER */}
       <section id="precios" aria-labelledby="precios-heading">
         <div className="wrap">
-          <div className="teaser-grid" style={{ gridTemplateColumns: '0.9fr 1.1fr' }}>
+          <div className="teaser-grid teaser-grid-reverse">
             <div className="teaser-features">
               <div className="teaser-card">
                 <strong>Plan Esencial</strong>
@@ -243,6 +245,7 @@ export default function Home() {
                 proyecto: que el cliente quede satisfecho.</p>
             </div>
             <div className="about-stats">
+              <ImageSpot ratio="16 / 9" label="Foto del equipo Axis" dark />
               <div className="about-stat">
                 <div className="k">Con base en Tepic, Nayarit</div>
                 <div className="v">Atendemos empresas en toda la república</div>

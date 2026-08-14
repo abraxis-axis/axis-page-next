@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
   title: "Cómo Funciona — Axis",
@@ -18,6 +19,7 @@ export default function ComoFunciona() {
 
       <section className="proceso-section" aria-label="Pasos del proceso">
         <div className="wrap">
+          <ImageSpot banner label="Imagen: primera sesión de trabajo" />
           <div className="timeline">
 
             <div className="timeline-item reveal">

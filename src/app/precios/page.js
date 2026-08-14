@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
   title: "Planes de Inversión — Axis",
@@ -181,6 +182,8 @@ export default function Precios() {
               style={{ color: 'var(--blue-500)', fontWeight: 600, textDecoration: 'none' }}>Escríbenos por WhatsApp</a> y
             con gusto te asesoramos.
           </p>
+
+          <ImageSpot banner label="Imagen: ejemplo de resultados" />
 
           <div className="services-cta reveal">
             <div className="eyebrow">¿Listo para empezar?</div>
