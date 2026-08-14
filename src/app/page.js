@@ -16,7 +16,7 @@ export default function Home() {
               a la medida de tu negocio.</p>
             <div className="hero-actions">
               <Link className="btn btn-accent" href="/ejemplos">Ver ejemplos en vivo</Link>
-              <a className="btn btn-ghost" href="#contacto">Cotizar mi proyecto</a>
+              <a className="btn btn-ghost-light" href="#contacto">Cotizar mi proyecto</a>
             </div>
           </div>
           <div className="hero-canvas-wrap" aria-hidden="true">

@@ -484,11 +484,11 @@ export default function FAQ() {
             </div>
           </div>
 
-          <div className="faq-cta" role="complementary" aria-label="Contacto">
+          <div className="services-cta" role="complementary" aria-label="Contacto">
             <div className="eyebrow">¿No encontraste tu respuesta?</div>
             <h2>Escríbenos directamente</h2>
             <p>Somos personas reales y respondemos rápido. Cuéntanos tu caso y te ayudamos sin compromiso.</p>
-            <div className="faq-cta-btns">
+            <div className="cta-btns">
               <a className="btn btn-accent" href="https://wa.me/523112794209" target="_blank"
                 rel="noopener noreferrer" id="faq-cta-whatsapp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
