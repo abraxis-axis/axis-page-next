@@ -55,9 +55,6 @@ export const metadata = {
     description: "Conectamos procesos. Impulsamos resultados. Páginas web y aplicaciones a la medida para pymes de México.",
     images: ["/imagenes/og-image.png"],
   },
-  icons: {
-    icon: "/imagenes/logo.png",
-  },
 };
 
 export default function RootLayout({ children }) {
