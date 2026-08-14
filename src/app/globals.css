@@ -1644,6 +1644,14 @@ footer .fine {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
+    .teaser-grid-reverse > :first-child {
+        order: 2;
+    }
+
+    .teaser-grid-reverse > :last-child {
+        order: 1;
+    }
 }
 
 /* ========================================
