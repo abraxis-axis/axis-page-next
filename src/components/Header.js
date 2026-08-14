@@ -2,16 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // Close menu when route changes
-  useEffect(() => {
+  // Close menu when route changes (adjust state during render, no effect needed)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setIsOpen(false);
-  }, [pathname]);
+  }
 
   // Handle escape key to close menu
   useEffect(() => {
@@ -58,7 +61,7 @@ export default function Header() {
     <header>
       <div className="wrap">
         <Link href="/" className="logo" aria-label="Axis — inicio">
-          <img src="/imagenes/logo.png" alt="Logo Axis" className="logo-img" />
+          <Image src="/imagenes/logo.png" alt="Logo Axis" width={342} height={342} className="logo-img" />
         </Link>
         <nav aria-label="Navegación principal">
           {navLinks.map((link) => (

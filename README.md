@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Axis — Página web y apps con AppSheet
 
-## Getting Started
+Sitio web de **Axis**, empresa de Tepic, Nayarit que diseña páginas web y aplicaciones con AppSheet para pymes de México.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Next.js 16](https://nextjs.org) (App Router + Turbopack)
+- React 19
+- Fonts optimizadas con `next/font/google` (Space Grotesk, Inter, IBM Plex Mono)
+
+## Estructura
+
+```
+src/
+├── app/                 # Rutas (App Router)
+│   ├── layout.js        # Layout raíz: Header, Footer, metadatos SEO
+│   ├── page.js          # Landing principal
+│   ├── servicios/       # Servicios
+│   ├── como-funciona/   # Proceso
+│   ├── ejemplos/        # Demos interactivas (AppSheet)
+│   ├── precios/         # Planes y precios
+│   ├── faq/             # Preguntas frecuentes (FAQContent.js + metadata)
+│   └── contacto/        # Contacto
+├── components/          # Componentes compartidos
+│   ├── Header.js
+│   ├── Footer.js
+│   ├── ContactForm.js   # Formulario que envía por WhatsApp con validación
+│   ├── NetworkCanvas.js # Animación canvas del hero
+│   ├── DemoTabs.js
+│   ├── ScrollRevealObserver.js
+│   └── WhatsAppFloat.js # Botón flotante de WhatsApp
+public/imagenes/         # logo.png, og-image.png
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requisitos
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Node.js 20.9 o superior (recomendado: instalar vía [nvm](https://github.com/nvm-sh/nvm))
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación y uso
 
-## Learn More
+```bash
+npm install       # solo la primera vez
+npm run dev       # servidor de desarrollo → http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Comandos adicionales:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build     # build de producción
+npm run start     # sirve el build de producción
+npm run lint      # eslint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Despliegue
 
-## Deploy on Vercel
+El sitio está preparado para desplegarse en [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) desde el repositorio de GitHub.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contacto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- WhatsApp / Teléfono: 311 279 4209
+- Correo: abraxis@axis-ab.com
+- Sitio: https://axis-ab.com
