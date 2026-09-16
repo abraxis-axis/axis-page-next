@@ -2,6 +2,8 @@ import Link from 'next/link';
 import NetworkCanvas from '@/components/NetworkCanvas';
 import ContactForm from '@/components/ContactForm';
 import ImageSpot from '@/components/ImageSpot';
+import SolutionCard from '@/components/SolutionCard';
+import SuccessCases from '@/components/SuccessCases';
 
 export default function Home() {
   return (
@@ -166,33 +168,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EJEMPLOS TEASER */}
+      {/* EJEMPLOS / PORTAFOLIO */}
       <section id="ejemplos" className="ejemplos-section" aria-labelledby="ejemplos-heading">
         <div className="wrap">
-          <div className="teaser-grid">
-            <div>
-              <div className="eyebrow">Ejemplos en vivo</div>
-              <h2 id="ejemplos-heading">Prueba nuestras soluciones en tiempo real</h2>
-              <p>Hemos preparado un espacio interactivo independiente para que experimentes de primera mano cómo
-                funcionan nuestras creaciones y cómo pueden transformar la operación diaria de tu negocio.</p>
-              <div style={{ marginTop: '32px' }}>
-                <Link className="btn btn-accent" href="/ejemplos">Probar ejemplos interactivos →</Link>
-              </div>
+          <div className="sec-head reveal">
+            <div className="eyebrow">Portafolio</div>
+            <h2 id="ejemplos-heading">Soluciones reales, listas para tu negocio</h2>
+            <p>Así se ven — y así funcionan — nuestras creaciones. Entra a cada tarjeta y pruébalas en vivo.</p>
+          </div>
+          <div className="real-projects">
+            <div className="real-projects-head reveal">
+              <div className="eyebrow">Proyectos en producción</div>
+              <h3>No son maquetas: ya los hicimos para clientes reales</h3>
+              <p>Estas dos soluciones están construidas y funcionando. Pruébalas en vivo dentro de nuestros ejemplos.</p>
             </div>
-            <div className="teaser-features">
-              <div className="teaser-card">
-                <strong>1. Página Informativa</strong>
-                <span>Visualiza un diseño responsivo para móviles y escritorio con velocidad optimizada.</span>
-              </div>
-              <div className="teaser-card">
-                <strong>2. Agenda de Citas</strong>
-                <span>Prueba la reserva de horarios en vivo con confirmación simulada inmediata.</span>
-              </div>
-              <div className="teaser-card">
-                <strong>3. App de Inventario</strong>
-                <span>Simula un control de stock dinámico con alertas automáticas de bajo stock.</span>
-              </div>
+            <div className="real-grid">
+              <SolutionCard
+                variant="dilitours"
+                real
+                tag="Proyecto real"
+                url="dilitours.com"
+                title="DiliTours — Renta de autos y tours"
+                description="Galería de vehículos con calendario de disponibilidad por auto: el cliente ve qué días está libre y cotiza por WhatsApp sin llamadas."
+                features={['Calendario de disponibilidad por auto', 'Búsqueda por fechas y filtros por tipo', 'Cotización directa por WhatsApp']}
+              />
+              <SolutionCard
+                variant="aura"
+                real
+                tag="Proyecto real"
+                url="aura-estetica.com"
+                title="Aura Estética — Reservas con confirmación por correo"
+                description="Sistema de citas con agenda inteligente: el cliente agenda y recibe su correo de confirmación al momento."
+                features={['Wizard de reserva en 4 pasos', 'Horarios con bloqueos automáticos', 'Correo de confirmación para el cliente']}
+              />
             </div>
+          </div>
+          <div className="solutions-grid">
+            <SolutionCard
+              variant="web"
+              tag="Página web"
+              url="tallertorres.mx"
+              title="Página informativa"
+              description="Un sitio claro, veloz y confiable para que tus clientes conozcan tu negocio desde cualquier dispositivo."
+              features={['Diseño responsivo móvil y escritorio', 'SEO y carga optimizada', 'Lista para vincularse a tu WhatsApp']}
+            />
+            <SolutionCard
+              variant="booking"
+              tag="Agenda de citas"
+              url="agenda.tuclinica.mx"
+              title="Reserva de citas en línea"
+              description="Tus clientes reservan solos a cualquier hora y tú recibes la confirmación al instante."
+              features={['Recordatorios automáticos', 'Horarios sincronizados en vivo', 'Confirmación vía WhatsApp']}
+            />
+            <SolutionCard
+              variant="inventory"
+              tag="App AppSheet"
+              url="inventario.axis-ab.com"
+              title="App de inventario"
+              description="Control de stock en tiempo real, desde el teléfono o la computadora, estés donde estés."
+              features={['Alertas de bajo stock', 'Acceso desde cualquier dispositivo', 'Sincronización automática']}
+            />
+          </div>
+          <div className="solutions-more reveal">
+            <Link className="btn btn-accent" href="/ejemplos">Probar ejemplos interactivos →</Link>
           </div>
         </div>
       </section>
@@ -262,6 +300,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CASOS DE ÉXITO */}
+      <SuccessCases />
 
       {/* CONTACT SECTION */}
       <section id="contacto" className="contacto-section" aria-labelledby="contacto-heading">

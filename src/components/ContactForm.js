@@ -20,12 +20,22 @@ const VALIDATIONS = {
   },
 };
 
+const OPCIONES = [
+  'Página informativa',
+  'App con AppSheet',
+  'Agenda de citas',
+  'Automatización de procesos',
+  'Otro',
+];
+
 export default function ContactForm() {
   const [nombre, setNombre] = useState('');
   const [telefono, setTelefono] = useState('');
   const [empresa, setEmpresa] = useState('');
   const [necesidad, setNecesidad] = useState('');
+  const [mensaje, setMensaje] = useState('');
   const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
 
   const validateField = (name, value) => {
     if (!VALIDATIONS[name]) return null;
@@ -67,14 +77,18 @@ export default function ContactForm() {
       return;
     }
 
-    let mensaje = `Hola, me interesa conocer más sobre sus servicios.\n\n`;
-    mensaje += `*Nombre:* ${nombre.trim()}\n`;
-    mensaje += `*Teléfono:* ${telefono.trim()}\n`;
-    if (empresa.trim()) mensaje += `*Empresa:* ${empresa.trim()}\n`;
-    mensaje += `*Necesito:* ${necesidad}`;
+    let text = `Hola, me interesa conocer más sobre sus servicios.\n\n`;
+    text += `*Nombre:* ${nombre.trim()}\n`;
+    text += `*Teléfono:* ${telefono.trim()}\n`;
+    if (empresa.trim()) text += `*Empresa:* ${empresa.trim()}\n`;
+    text += `*Necesito:* ${necesidad}\n`;
+    if (mensaje.trim()) text += `\n${mensaje.trim()}`;
 
-    const url = `https://wa.me/523112794209?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/523112794209?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
+
+    setSent(true);
+    window.setTimeout(() => setSent(false), 5000);
   };
 
   return (
@@ -132,28 +146,37 @@ export default function ContactForm() {
         />
       </div>
       <div className="field">
-        <label htmlFor="contact-necesidad">¿Qué necesitas?</label>
-        <select
-          id="contact-necesidad"
-          name="necesidad"
-          value={necesidad}
-          onChange={(e) => handleChange('necesidad', setNecesidad, e.target.value)}
-          aria-invalid={errors.necesidad ? true : undefined}
-          aria-describedby={errors.necesidad ? 'contact-necesidad-error' : undefined}
-          className={errors.necesidad ? 'field-error' : ''}
-        >
-          <option value="">Selecciona una opción</option>
-          <option value="Página informativa">Página informativa</option>
-          <option value="App con AppSheet">App con AppSheet</option>
-          <option value="Automatización de procesos">Automatización de procesos</option>
-          <option value="Agenda de citas">Agenda de citas</option>
-          <option value="Otro">Otro</option>
-        </select>
+        <span className="field-label">¿Qué necesitas?</span>
+        <div className="chip-group" role="radiogroup" aria-label="Qué necesitas">
+          {OPCIONES.map((opcion) => (
+            <button
+              type="button"
+              role="radio"
+              aria-checked={necesidad === opcion}
+              key={opcion}
+              className={`chip ${necesidad === opcion ? 'active' : ''}`}
+              onClick={() => handleChange('necesidad', setNecesidad, opcion)}
+            >
+              {opcion}
+            </button>
+          ))}
+        </div>
         {errors.necesidad && (
           <p className="field-msg" id="contact-necesidad-error" role="alert">
             {errors.necesidad}
           </p>
         )}
+      </div>
+      <div className="field">
+        <label htmlFor="contact-mensaje">Cuéntanos un poco más <span className="field-optional">(opcional)</span></label>
+        <textarea
+          id="contact-mensaje"
+          name="mensaje"
+          rows="3"
+          placeholder="Ej. queremos controlar el inventario de 2 tiendas…"
+          value={mensaje}
+          onChange={(e) => setMensaje(e.target.value)}
+        />
       </div>
       <button type="submit" className="btn btn-primary btn-full" id="contact-submit">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -162,6 +185,9 @@ export default function ContactForm() {
         </svg>
         Enviar por WhatsApp
       </button>
+      <p className={`form-status ${sent ? 'show' : ''}`} role="status" aria-live="polite">
+        Abriendo WhatsApp… se enviará tu mensaje con los datos que completaste.
+      </p>
     </form>
   );
 }

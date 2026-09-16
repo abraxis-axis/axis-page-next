@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import DemoDilitours from '@/components/DemoDilitours';
+import DemoAura from '@/components/DemoAura';
 
 export default function DemoTabs() {
   const [activeTab, setActiveTab] = useState('d1');
@@ -76,6 +78,8 @@ export default function DemoTabs() {
     d1: 'tallertorres.mx',
     d2: 'agenda.tuclinica.mx',
     d3: 'inventario.axis-ab.com',
+    d4: 'flota.dilitours.com',
+    d5: 'reservas.aura-estetica.com',
   };
 
   return (
@@ -110,6 +114,26 @@ export default function DemoTabs() {
           onClick={() => handleTabChange('d3')}
         >
           App de inventario
+        </button>
+        <button
+          className={`tab-btn ${activeTab === 'd4' ? 'active' : ''}`}
+          role="tab"
+          aria-selected={activeTab === 'd4'}
+          aria-controls="d4"
+          id="tab-d4"
+          onClick={() => handleTabChange('d4')}
+        >
+          Renta de autos (DiliTours)
+        </button>
+        <button
+          className={`tab-btn ${activeTab === 'd5' ? 'active' : ''}`}
+          role="tab"
+          aria-selected={activeTab === 'd5'}
+          aria-controls="d5"
+          id="tab-d5"
+          onClick={() => handleTabChange('d5')}
+        >
+          Reservas (Aura Estética)
         </button>
       </div>
 
@@ -313,6 +337,34 @@ export default function DemoTabs() {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* DEMO 4: DiliTours (proyecto real) */}
+        <div
+          className={`demo-panel ${activeTab === 'd4' ? 'active' : ''}`}
+          id="d4"
+          role="tabpanel"
+          aria-labelledby="tab-d4"
+        >
+          <div className="demo-real-note">
+            <span className="demo-real-dot"></span>
+            Demo basada en DiliTours — sitio real de renta de autos y tours (Tepic, Nayarit).
+          </div>
+          <DemoDilitours />
+        </div>
+
+        {/* DEMO 5: Aura Estética (proyecto real) */}
+        <div
+          className={`demo-panel ${activeTab === 'd5' ? 'active' : ''}`}
+          id="d5"
+          role="tabpanel"
+          aria-labelledby="tab-d5"
+        >
+          <div className="demo-real-note">
+            <span className="demo-real-dot"></span>
+            Demo basada en Aura Estética — sistema real de reservas de citas con confirmación por correo.
+          </div>
+          <DemoAura />
         </div>
       </div>
     </>
