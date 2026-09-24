@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
@@ -25,7 +26,13 @@ export default function Servicios() {
             {/* 1. Páginas informativas */}
             <div className="service-detail reveal">
               <div className="service-visual">
-                <ImageSpot dark ratio="16 / 10" label="Captura: página web" />
+                <Image
+                  src="/imagenes/pagina_informativa.jpeg"
+                  alt="Demo de pagina de reservas"
+                  width={800}
+                  height={500}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -53,7 +60,13 @@ export default function Servicios() {
             {/* 2. Apps con AppSheet */}
             <div className="service-detail reversed reveal">
               <div className="service-visual">
-                <ImageSpot dark ratio="16 / 10" label="Captura: app móvil" />
+                <Image
+                  src="/imagenes/appsheet_demo.png"
+                  alt="Demo de app móvil creada con AppSheet"
+                  width={800}
+                  height={500}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                />
               </div>
               <div>
                 <div className="service-detail-icon">
@@ -106,7 +119,13 @@ export default function Servicios() {
             {/* 4. Agenda de citas */}
             <div className="service-detail reversed reveal">
               <div className="service-visual">
-                <ImageSpot dark ratio="16 / 10" label="Captura: agenda de citas" />
+                <Image
+                  src="/imagenes/pagina_reservas.png"
+                  alt="Demo de pagina de reservas"
+                  width={800}
+                  height={500}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                />
               </div>
               <div>
                 <div className="service-detail-icon">
