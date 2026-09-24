@@ -9,7 +9,7 @@ const MESES = [
   'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
 ];
 const DIAS_SEMANA = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-const WA_DILITOURS = 'https://wa.me/5213113924482';
+const WA_DILITOURS = 'https://wa.me/5213111021576';
 
 function toISO(date) {
   const y = date.getFullYear();
@@ -174,8 +174,8 @@ function CalendarioAuto({ auto, onClose }) {
           <p className="dl-cal-status">
             {fechaInicio
               ? (rangoValido
-                  ? `${totalDias} días seleccionados: ${formatDisplayDate(fechaInicio)} → ${formatDisplayDate(fechaFin)}`
-                  : 'Selecciona la fecha de regreso')
+                ? `${totalDias} días seleccionados: ${formatDisplayDate(fechaInicio)} → ${formatDisplayDate(fechaFin)}`
+                : 'Selecciona la fecha de regreso')
               : 'Selecciona una fecha de inicio y regreso en el calendario.'}
           </p>
           <div className="dl-bar-actions">

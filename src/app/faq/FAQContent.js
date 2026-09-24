@@ -69,10 +69,10 @@ export default function FAQ() {
       id: 'gen-4',
       category: 'general',
       question: '¿Puedo ver ejemplos de su trabajo?',
-      plainText: '¡Sí! Tenemos una página de ejemplos interactivos donde puedes probar demos en vivo de los tipos de soluciones que construimos: páginas informativas, agendas de citas y apps de inventario, entre otros.',
+      plainText: '¡Sí! Tenemos una página de ejemplos interactivos donde puedes probar demos en vivo de los tipos de soluciones que construimos: páginas informativas, renta de vehículos con calendario de disponibilidad y sistemas de reservas de citas, entre otros.',
       answer: (
         <p>
-          ¡Sí! Tenemos una <Link href="/ejemplos" style={{ color: 'var(--blue-500)', fontWeight: 600, textDecoration: 'underline' }}>página de ejemplos interactivos</Link> donde puedes probar demos en vivo de los tipos de soluciones que construimos: páginas informativas, agendas de citas y apps de inventario, entre otros.
+          ¡Sí! Tenemos una <Link href="/ejemplos" style={{ color: 'var(--blue-500)', fontWeight: 600, textDecoration: 'underline' }}>página de ejemplos interactivos</Link> donde puedes probar demos en vivo de los tipos de soluciones que construimos: páginas informativas, renta de vehículos con calendario de disponibilidad y sistemas de reservas de citas, entre otros.
         </p>
       )
     },

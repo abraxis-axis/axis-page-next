@@ -176,34 +176,7 @@ export default function Home() {
             <h2 id="ejemplos-heading">Soluciones reales, listas para tu negocio</h2>
             <p>Así se ven — y así funcionan — nuestras creaciones. Entra a cada tarjeta y pruébalas en vivo.</p>
           </div>
-          <div className="real-projects">
-            <div className="real-projects-head reveal">
-              <div className="eyebrow">Proyectos en producción</div>
-              <h3>No son maquetas: ya los hicimos para clientes reales</h3>
-              <p>Estas dos soluciones están construidas y funcionando. Pruébalas en vivo dentro de nuestros ejemplos.</p>
-            </div>
-            <div className="real-grid">
-              <SolutionCard
-                variant="dilitours"
-                real
-                tag="Proyecto real"
-                url="dilitours.com"
-                title="DiliTours — Renta de autos y tours"
-                description="Galería de vehículos con calendario de disponibilidad por auto: el cliente ve qué días está libre y cotiza por WhatsApp sin llamadas."
-                features={['Calendario de disponibilidad por auto', 'Búsqueda por fechas y filtros por tipo', 'Cotización directa por WhatsApp']}
-              />
-              <SolutionCard
-                variant="aura"
-                real
-                tag="Proyecto real"
-                url="aura-estetica.com"
-                title="Aura Estética — Reservas con confirmación por correo"
-                description="Sistema de citas con agenda inteligente: el cliente agenda y recibe su correo de confirmación al momento."
-                features={['Wizard de reserva en 4 pasos', 'Horarios con bloqueos automáticos', 'Correo de confirmación para el cliente']}
-              />
-            </div>
-          </div>
-          <div className="solutions-grid">
+          <div className="solutions-grid" style={{ marginTop: '56px' }}>
             <SolutionCard
               variant="web"
               tag="Página web"
@@ -213,20 +186,22 @@ export default function Home() {
               features={['Diseño responsivo móvil y escritorio', 'SEO y carga optimizada', 'Lista para vincularse a tu WhatsApp']}
             />
             <SolutionCard
-              variant="booking"
-              tag="Agenda de citas"
-              url="agenda.tuclinica.mx"
-              title="Reserva de citas en línea"
-              description="Tus clientes reservan solos a cualquier hora y tú recibes la confirmación al instante."
-              features={['Recordatorios automáticos', 'Horarios sincronizados en vivo', 'Confirmación vía WhatsApp']}
+              variant="dilitours"
+              real
+              tag="Proyecto real"
+              url="dilitours.com"
+              title="DiliTours — Renta de autos y tours"
+              description="Galería de vehículos con calendario de disponibilidad por auto: el cliente ve qué días está libre y cotiza por WhatsApp sin llamadas."
+              features={['Calendario de disponibilidad por auto', 'Búsqueda por fechas y filtros por tipo', 'Cotización directa por WhatsApp']}
             />
             <SolutionCard
-              variant="inventory"
-              tag="App AppSheet"
-              url="inventario.axis-ab.com"
-              title="App de inventario"
-              description="Control de stock en tiempo real, desde el teléfono o la computadora, estés donde estés."
-              features={['Alertas de bajo stock', 'Acceso desde cualquier dispositivo', 'Sincronización automática']}
+              variant="aura"
+              real
+              tag="Proyecto real"
+              url="aura-estetica.com"
+              title="Aura Estética — Reservas con confirmación por correo"
+              description="Sistema de citas con agenda inteligente: el cliente agenda y recibe su correo de confirmación al momento."
+              features={['Wizard de reserva en 4 pasos', 'Horarios con bloqueos automáticos', 'Correo de confirmación para el cliente']}
             />
           </div>
           <div className="solutions-more reveal">

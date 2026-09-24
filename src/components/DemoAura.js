@@ -5,7 +5,7 @@ import { SALON_DEMO, generarCitasDemo, generarIdCita } from '@/data/projects';
 
 const MESES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 const DIAS_COMPLETOS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-const WA_AURA = 'https://wa.me/523112794209';
+const WA_AURA = 'https://wa.me/5213111021576';
 
 function toISO(date) {
   const y = date.getFullYear();

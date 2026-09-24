@@ -76,7 +76,7 @@ export default function Header() {
         </nav>
         <Link
           className="btn btn-primary"
-          href="https://wa.me/523112794209"
+          href="https://wa.me/5213111021576"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -111,7 +111,7 @@ export default function Header() {
         ))}
         <Link
           className="btn btn-primary"
-          href="https://wa.me/523112794209"
+          href="https://wa.me/5213111021576"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -76,8 +76,6 @@ export default function DemoTabs() {
 
   const urls = {
     d1: 'tallertorres.mx',
-    d2: 'agenda.tuclinica.mx',
-    d3: 'inventario.axis-ab.com',
     d4: 'flota.dilitours.com',
     d5: 'reservas.aura-estetica.com',
   };
@@ -94,26 +92,6 @@ export default function DemoTabs() {
           onClick={() => handleTabChange('d1')}
         >
           Página informativa
-        </button>
-        <button
-          className={`tab-btn ${activeTab === 'd2' ? 'active' : ''}`}
-          role="tab"
-          aria-selected={activeTab === 'd2'}
-          aria-controls="d2"
-          id="tab-d2"
-          onClick={() => handleTabChange('d2')}
-        >
-          Agenda de citas
-        </button>
-        <button
-          className={`tab-btn ${activeTab === 'd3' ? 'active' : ''}`}
-          role="tab"
-          aria-selected={activeTab === 'd3'}
-          aria-controls="d3"
-          id="tab-d3"
-          onClick={() => handleTabChange('d3')}
-        >
-          App de inventario
         </button>
         <button
           className={`tab-btn ${activeTab === 'd4' ? 'active' : ''}`}
@@ -191,150 +169,6 @@ export default function DemoTabs() {
               <div>
                 <strong>Servicio mayor</strong>Afinación, aceite y filtros en menos de 2 horas.
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* DEMO 2 */}
-        <div
-          className={`demo-panel ${activeTab === 'd2' ? 'active' : ''}`}
-          id="d2"
-          role="tabpanel"
-          aria-labelledby="tab-d2"
-        >
-          <div className="d2-body">
-            <div>
-              <div className="field">
-                <label htmlFor="svc-select">Servicio</label>
-                <select id="svc-select" value={svc} onChange={handleServiceChange}>
-                  <option value="Consulta general">Consulta general</option>
-                  <option value="Limpieza dental">Limpieza dental</option>
-                  <option value="Valoración inicial">Valoración inicial</option>
-                </select>
-              </div>
-              <div className="field">
-                <label htmlFor="date-select">Fecha</label>
-                <input type="date" id="date-select" value={bookingDate} onChange={handleDateChange} />
-              </div>
-              <div className="field">
-                <label>Horario disponible</label>
-                <div className="slots" id="slots">
-                  {slots.map((slot) => (
-                    <div
-                      key={slot}
-                      className={`slot ${bookingSlot === slot ? 'selected' : ''}`}
-                      role="button"
-                      tabIndex={0}
-                      onClick={() => handleSlotSelect(slot)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          handleSlotSelect(slot);
-                        }
-                      }}
-                    >
-                      {slot}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <button className="btn btn-primary btn-sm" id="confirm-btn" onClick={handleConfirm}>
-                Confirmar cita
-              </button>
-            </div>
-            <div className="d2-summary">
-              <p className="d2-summary-title">Resumen de tu cita</p>
-              <div className="row">
-                <span>Servicio</span>
-                <b id="sum-svc">{svc}</b>
-              </div>
-              <div className="row">
-                <span>Fecha</span>
-                <b id="sum-date">{formattedDate}</b>
-              </div>
-              <div className="row">
-                <span>Hora</span>
-                <b id="sum-time">{bookingSlot || '—'}</b>
-              </div>
-              <div className={`d2-confirm ${isConfirmed ? 'show' : ''}`} id="d2-confirm" role="status">
-                ✓ Cita confirmada. Te llegará un recordatorio automático un día antes.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* DEMO 3 */}
-        <div
-          className={`demo-panel ${activeTab === 'd3' ? 'active' : ''}`}
-          id="d3"
-          role="tabpanel"
-          aria-labelledby="tab-d3"
-        >
-          <div className="d3-body">
-            <div className="d3-toolbar">
-              <p className="d3-title">Inventario — Refaccionaria Axis Demo</p>
-              <span className="mono d3-sync">sincronizado hace 2 min</span>
-            </div>
-            <table className="inv" id="inv-table">
-              <thead>
-                <tr>
-                  <th scope="col">Producto</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">
-                    <span className="sr-only">Acciones</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="inv-body">
-                {inventory.map((item) => {
-                  const isLow = item.qty <= 5;
-                  return (
-                    <tr key={item.id}>
-                      <td>{item.name}</td>
-                      <td>{item.qty}</td>
-                      <td>
-                        <span className={`stock-pill ${isLow ? 'stock-low' : 'stock-ok'}`}>
-                          {isLow ? 'Bajo stock' : 'Suficiente'}
-                        </span>
-                      </td>
-                      <td>
-                        <button
-                          className="del-btn"
-                          aria-label={`Eliminar ${item.name}`}
-                          onClick={() => handleDeleteInv(item.id)}
-                        >
-                          ✕
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div className="add-row">
-              <input
-                type="text"
-                name="prod"
-                placeholder="Nombre del producto"
-                id="new-prod"
-                aria-label="Nombre del producto"
-                value={newProd}
-                onChange={(e) => setNewProd(e.target.value)}
-              />
-              <input
-                type="number"
-                name="qty"
-                placeholder="Cant."
-                id="new-qty"
-                aria-label="Cantidad"
-                min="0"
-                value={newQty}
-                onChange={(e) => setNewQty(e.target.value)}
-              />
-              <button className="btn btn-primary btn-sm" id="add-btn" onClick={handleAddInv}>
-                + Agregar producto
-              </button>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import ImageSpot from '@/components/ImageSpot';
 
 export const metadata = {
   title: "Ejemplos en Vivo — Axis",
-  description: "Experimenta con demos interactivos de páginas web, apps de reserva de citas y herramientas de inventario.",
+  description: "Experimenta con demos interactivos de páginas web, renta de vehículos con calendario y sistemas de reserva de citas.",
 };
 
 export default function Ejemplos() {
@@ -23,8 +23,9 @@ export default function Ejemplos() {
           <div className="sec-head">
             <div className="eyebrow">Demos Interactivos</div>
             <h1>Así se ven — y así funcionan</h1>
-            <p>Prueba tú mismo tres muestras reales de lo que podemos construir para tu empresa: una página
-              informativa, una agenda de citas y una app de inventario tipo AppSheet.</p>
+            <p>Prueba tú mismo las demos interactivas de lo que podemos construir para tu empresa: una página
+              informativa, la renta de vehículos con calendario de disponibilidad de DiliTours y las reservas de
+              citas con confirmación por correo de Aura Estética.</p>
           </div>
         </div>
       </section>
