@@ -32,7 +32,6 @@ export default function Ejemplos() {
 
       <section className="ejemplos-section demo-container">
         <div className="wrap">
-          <ImageSpot banner label="Imagen: capturas de proyectos" />
           <DemoTabs />
         </div>
       </section>

@@ -3134,6 +3134,12 @@ footer .fine {
     flex-shrink: 0;
 }
 
+.demo-loading {
+    padding: 32px 36px;
+    font-size: 13px;
+    color: var(--ink-600);
+}
+
 /* ---------- DILITOURS DEMO ---------- */
 .dl-demo {
     padding: 32px 36px;

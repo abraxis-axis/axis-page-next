@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import ImageSpot from '@/components/ImageSpot';
+import { SITE } from '@/data/site';
 
 export const metadata = {
   title: "Nuestros Servicios — Axis",
@@ -93,8 +94,13 @@ export default function Servicios() {
             {/* 3. Automatización */}
             <div className="service-detail reveal">
               <div className="service-visual">
-                <ImageSpot dark ratio="16 / 10" label="Captura: flujo automatizado" />
-              </div>
+                <Image
+                  src="/imagenes/automatizaciones.jpeg"
+                  alt="Demo de pagina de reservas"
+                  width={800}
+                  height={500}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                />              </div>
               <div>
                 <div className="service-detail-icon">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
@@ -154,8 +160,13 @@ export default function Servicios() {
             {/* 5. Mejora de procesos */}
             <div className="service-detail reveal">
               <div className="service-visual">
-                <ImageSpot dark ratio="16 / 10" label="Captura: diagnóstico" />
-              </div>
+                <Image
+                  src="/imagenes/mejora_procesos.png"
+                  alt="Demo de pagina de reservas"
+                  width={800}
+                  height={500}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                />              </div>
               <div>
                 <div className="service-detail-icon">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
@@ -178,34 +189,6 @@ export default function Servicios() {
               </div>
             </div>
 
-            {/* 6. Aplicaciones web */}
-            <div className="service-detail reversed reveal">
-              <div className="service-visual">
-                <ImageSpot dark ratio="16 / 10" label="Captura: app web" />
-              </div>
-              <div>
-                <div className="service-detail-icon">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue-300)"
-                    strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
-                </div>
-                <span className="service-detail-tag">WEB APP</span>
-                <h2>Aplicaciones web</h2>
-                <p>Herramientas más complejas y personalizadas para tu equipo: dashboards, portales de clientes,
-                  sistemas de gestión interna. Todo accesible desde cualquier navegador.</p>
-                <ul className="service-features">
-                  <li>Acceso multi-usuario con autenticación</li>
-                  <li>Paneles de control con datos en tiempo real</li>
-                  <li>Integración con APIs y servicios externos</li>
-                  <li>Portales de clientes o proveedores</li>
-                  <li>Escalable según crecimiento de tu empresa</li>
-                </ul>
-              </div>
-            </div>
-
           </div>
 
           <div className="services-cta">
@@ -214,7 +197,7 @@ export default function Servicios() {
             <p>La primera plática es sin costo y sin compromiso. En 30 minutos ya sabrás qué solución se adapta
               mejor a ti.</p>
             <div className="cta-btns">
-              <a className="btn btn-accent" href="https://wa.me/523112794209" target="_blank"
+              <a className="btn btn-accent" href={SITE.whatsappUrl} target="_blank"
                 rel="noopener noreferrer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path

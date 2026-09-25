@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ImageSpot from '@/components/ImageSpot';
+import { SITE } from '@/data/site';
 
 export const metadata = {
   title: "Nosotros — Axis",
@@ -33,12 +34,11 @@ export default function Nosotros() {
               <p>Somos una empresa responsable y formal. Trabajamos con transparencia, plazos reales y comunicación
                 directa — hablas con quien hace el trabajo, no con un intermediario.</p>
             </div>
-              <div className="about-stats">
-                <ImageSpot src="" ratio="16 / 9" label="Foto del equipo Axis" dark />
-                <div className="about-stat">
-                  <div className="k">Con base en Tepic, Nayarit</div>
-                  <div className="v">Atendemos empresas en toda la república</div>
-                </div>
+            <div className="about-stats">
+              <div className="about-stat">
+                <div className="k">Con base en Tepic, Nayarit</div>
+                <div className="v">Atendemos empresas en toda la república</div>
+              </div>
               <div className="about-stat">
                 <div className="k">Páginas web + apps con AppSheet</div>
                 <div className="v">Un solo equipo para tu presencia digital y tu operación</div>
@@ -122,7 +122,7 @@ export default function Nosotros() {
             <p>Agenda una plática inicial sin costo ni compromiso. En 30 minutos te decimos qué necesitas y cuánto
               costaría.</p>
             <div className="cta-btns">
-              <a className="btn btn-accent" href="https://wa.me/523112794209" target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-accent" href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer">
                 Escribir por WhatsApp
               </a>
               <Link className="btn btn-ghost-light" href="/contacto">Ir a contacto</Link>

@@ -1,4 +1,5 @@
 import ContactForm from '@/components/ContactForm';
+import { SITE } from '@/data/site';
 
 export const metadata = {
   title: "Contacto — Axis",
@@ -29,8 +30,8 @@ export default function Contacto() {
                 <div>
                   <span className="lbl">Teléfono / WhatsApp</span>
                   <span className="val">
-                    <a href="https://wa.me/523112794209" target="_blank" rel="noopener noreferrer">
-                      311 279 4209
+                    <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      {SITE.phone}
                     </a>
                   </span>
                 </div>
@@ -39,14 +40,14 @@ export default function Contacto() {
                 <div>
                   <span className="lbl">Correo</span>
                   <span className="val">
-                    <a href="mailto:abraxis@axis-ab.com">abraxis@axis-ab.com</a>
+                    <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
                   </span>
                 </div>
               </div>
               <div className="contact-item">
                 <div>
                   <span className="lbl">Ubicación</span>
-                  <span className="val">Tepic, Nayarit — servicio en toda la república</span>
+                  <span className="val">{SITE.location}</span>
                 </div>
               </div>
               <p className="contact-response">Respondemos por WhatsApp o correo, normalmente el mismo día hábil.</p>

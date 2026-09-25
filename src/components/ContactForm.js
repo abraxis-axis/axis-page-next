@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { SITE } from '@/data/site';
 
 const VALIDATIONS = {
   nombre: (value) => {
@@ -35,7 +36,7 @@ export default function ContactForm() {
   const [necesidad, setNecesidad] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [errors, setErrors] = useState({});
-  const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(null);
 
   const validateField = (name, value) => {
     if (!VALIDATIONS[name]) return null;
@@ -54,9 +55,17 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const buildMessage = () => {
+    let text = `Hola, me interesa conocer más sobre sus servicios.\n\n`;
+    text += `*Nombre:* ${nombre.trim()}\n`;
+    text += `*Teléfono:* ${telefono.trim()}\n`;
+    if (empresa.trim()) text += `*Empresa:* ${empresa.trim()}\n`;
+    text += `*Necesito:* ${necesidad}\n`;
+    if (mensaje.trim()) text += `\n${mensaje.trim()}`;
+    return text;
+  };
 
+  const validate = () => {
     const fields = {
       nombre,
       telefono,
@@ -74,21 +83,33 @@ export default function ContactForm() {
     const firstError = Object.keys(nextErrors)[0];
     if (firstError) {
       document.getElementById(`contact-${firstError}`)?.focus();
-      return;
+      return false;
     }
+    return true;
+  };
 
-    let text = `Hola, me interesa conocer más sobre sus servicios.\n\n`;
-    text += `*Nombre:* ${nombre.trim()}\n`;
-    text += `*Teléfono:* ${telefono.trim()}\n`;
-    if (empresa.trim()) text += `*Empresa:* ${empresa.trim()}\n`;
-    text += `*Necesito:* ${necesidad}\n`;
-    if (mensaje.trim()) text += `\n${mensaje.trim()}`;
+  const showStatus = (channel) => {
+    setSent(channel);
+    window.setTimeout(() => setSent(null), 5000);
+  };
 
-    const url = `https://wa.me/523112794209?text=${encodeURIComponent(text)}`;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const url = `${SITE.whatsappUrl}?text=${encodeURIComponent(buildMessage())}`;
     window.open(url, '_blank', 'noopener,noreferrer');
+    showStatus('whatsapp');
+  };
 
-    setSent(true);
-    window.setTimeout(() => setSent(false), 5000);
+  const openEmail = () => {
+    if (!validate()) return;
+
+    const text = buildMessage().replace(/\*+/g, '');
+    const subject = `Contacto ${SITE.name} — ${nombre.trim()}`;
+    const url = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    window.location.href = url;
+    showStatus('email');
   };
 
   return (
@@ -185,8 +206,18 @@ export default function ContactForm() {
         </svg>
         Enviar por WhatsApp
       </button>
+      <button type="button" className="btn btn-ghost btn-full" id="contact-email" onClick={openEmail}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+        Enviar por correo
+      </button>
       <p className={`form-status ${sent ? 'show' : ''}`} role="status" aria-live="polite">
-        Abriendo WhatsApp… se enviará tu mensaje con los datos que completaste.
+        {sent === 'email'
+          ? `Abriendo tu aplicación de correo… si no se abre, escríbenos a ${SITE.email}.`
+          : 'Abriendo WhatsApp… se enviará tu mensaje con los datos que completaste.'}
       </p>
     </form>
   );

@@ -1,77 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-import DemoDilitours from '@/components/DemoDilitours';
-import DemoAura from '@/components/DemoAura';
+import { useState, lazy, Suspense } from 'react';
+
+const DemoDilitours = lazy(() => import('@/components/DemoDilitours'));
+const DemoAura = lazy(() => import('@/components/DemoAura'));
 
 export default function DemoTabs() {
   const [activeTab, setActiveTab] = useState('d1');
   const [viewMode, setViewMode] = useState('desktop');
+  const [visited, setVisited] = useState({ d4: false, d5: false });
 
-  // Demo 2: Booking state
-  const [svc, setSvc] = useState('Consulta general');
-  const [bookingDate, setBookingDate] = useState('');
-  const [bookingSlot, setBookingSlot] = useState('');
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const slots = ['9:00', '10:30', '12:00', '16:00', '17:30'];
-
-  // Demo 3: Inventory state
-  const [inventory, setInventory] = useState([
-    { id: 1, name: 'Filtro de aceite', qty: 24 },
-    { id: 2, name: 'Balatas delanteras', qty: 3 },
-    { id: 3, name: 'Bujías', qty: 40 },
-  ]);
-  const [newProd, setNewProd] = useState('');
-  const [newQty, setNewQty] = useState('');
-
-  // Handle tab switching
   const handleTabChange = (tabId) => {
-    setActiveTab(tabId);
-  };
-
-  // Demo 2 handlers
-  const handleServiceChange = (e) => {
-    setSvc(e.target.value);
-  };
-
-  const handleDateChange = (e) => {
-    setBookingDate(e.target.value);
-    setBookingSlot('');
-    setIsConfirmed(false);
-  };
-
-  const handleSlotSelect = (slot) => {
-    setBookingSlot(slot);
-    setIsConfirmed(false);
-  };
-
-  const handleConfirm = () => {
-    if (!bookingDate || !bookingSlot) {
-      return;
+    if (tabId === 'd4' || tabId === 'd5') {
+      setVisited((prev) => ({ ...prev, [tabId]: true }));
     }
-    setIsConfirmed(true);
-  };
-
-  const formattedDate = bookingDate
-    ? new Date(bookingDate + 'T00:00').toLocaleDateString('es-MX', { day: 'numeric', month: 'short' })
-    : '—';
-
-  // Demo 3 handlers
-  const handleDeleteInv = (id) => {
-    setInventory(inventory.filter((item) => item.id !== id));
-  };
-
-  const handleAddInv = () => {
-    const name = newProd.trim();
-    const qty = parseInt(newQty, 10);
-    if (!name || isNaN(qty) || qty < 0) return;
-
-    setInventory([
-      ...inventory,
-      { id: Date.now(), name, qty },
-    ]);
-    setNewProd('');
-    setNewQty('');
+    setActiveTab(tabId);
   };
 
   const urls = {
@@ -184,7 +127,9 @@ export default function DemoTabs() {
             <span className="demo-real-dot"></span>
             Demo basada en DiliTours — sitio real de renta de autos y tours (Tepic, Nayarit).
           </div>
-          <DemoDilitours />
+          <Suspense fallback={<div className="demo-loading">Cargando demo…</div>}>
+            {visited.d4 && <DemoDilitours />}
+          </Suspense>
         </div>
 
         {/* DEMO 5: Aura Estética (proyecto real) */}
@@ -198,7 +143,9 @@ export default function DemoTabs() {
             <span className="demo-real-dot"></span>
             Demo basada en Aura Estética — sistema real de reservas de citas con confirmación por correo.
           </div>
-          <DemoAura />
+          <Suspense fallback={<div className="demo-loading">Cargando demo…</div>}>
+            {visited.d5 && <DemoAura />}
+          </Suspense>
         </div>
       </div>
     </>

@@ -3,13 +3,14 @@
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { VEHICULOS, TIPOS_DILITOURS } from '@/data/projects';
+import { SITE } from '@/data/site';
 
 const MESES = [
   'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
   'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
 ];
 const DIAS_SEMANA = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-const WA_DILITOURS = 'https://wa.me/5213111021576';
+const WA_DILITOURS = SITE.whatsappUrl;
 
 function toISO(date) {
   const y = date.getFullYear();

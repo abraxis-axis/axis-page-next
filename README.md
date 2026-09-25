@@ -57,6 +57,8 @@ El sitio está preparado para desplegarse en [Vercel](https://vercel.com/new?utm
 
 ## Contacto
 
-- WhatsApp / Teléfono: 311 279 4209
+> Los datos de contacto están centralizados en `src/data/site.js`. Para actualizar teléfono, correo, ubicación o sitio web, edita ese archivo y se propaga a toda la web.
+
+- WhatsApp / Teléfono: 311 102 1576
 - Correo: abraxis@axis-ab.com
 - Sitio: https://axis-ab.com

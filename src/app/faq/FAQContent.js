@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Link from 'next/link';
+import { SITE } from '@/data/site';
 
 export default function FAQ() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -489,7 +490,7 @@ export default function FAQ() {
             <h2>Escríbenos directamente</h2>
             <p>Somos personas reales y respondemos rápido. Cuéntanos tu caso y te ayudamos sin compromiso.</p>
             <div className="cta-btns">
-              <a className="btn btn-accent" href="https://wa.me/523112794209" target="_blank"
+              <a className="btn btn-accent" href={SITE.whatsappUrl} target="_blank"
                 rel="noopener noreferrer" id="faq-cta-whatsapp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path
@@ -499,7 +500,7 @@ export default function FAQ() {
                 </svg>
                 Escribir por WhatsApp
               </a>
-              <a className="btn btn-ghost-light" href="mailto:abraxis@axis-ab.com" id="faq-cta-email">
+              <a className="btn btn-ghost-light" href={`mailto:${SITE.email}`} id="faq-cta-email">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />

@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from 'react';
 import { SALON_DEMO, generarCitasDemo, generarIdCita } from '@/data/projects';
+import { SITE } from '@/data/site';
 
 const MESES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 const DIAS_COMPLETOS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-const WA_AURA = 'https://wa.me/5213111021576';
+const WA_AURA = SITE.whatsappUrl;
 
 function toISO(date) {
   const y = date.getFullYear();

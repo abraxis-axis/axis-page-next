@@ -4,6 +4,7 @@ import ContactForm from '@/components/ContactForm';
 import ImageSpot from '@/components/ImageSpot';
 import SolutionCard from '@/components/SolutionCard';
 import SuccessCases from '@/components/SuccessCases';
+import { SITE } from '@/data/site';
 
 export default function Home() {
   return (
@@ -109,7 +110,6 @@ export default function Home() {
             <h2 id="proceso-heading">Simple, claro y sin sorpresas</h2>
             <p>Así trabajamos contigo, de la primera llamada hasta el lanzamiento.</p>
           </div>
-          <ImageSpot banner label="Imagen: cómo trabajamos" />
           <div className="steps-grid">
             <div className="step-card reveal" style={{ '--d': '0ms' }}>
               <div className="step-num">01</div>
@@ -258,7 +258,6 @@ export default function Home() {
                 proyecto: que el cliente quede satisfecho.</p>
             </div>
             <div className="about-stats">
-              <ImageSpot ratio="16 / 9" label="Foto del equipo Axis" dark />
               <div className="about-stat">
                 <div className="k">Con base en Tepic, Nayarit</div>
                 <div className="v">Atendemos empresas en toda la república</div>
@@ -293,8 +292,8 @@ export default function Home() {
                 <div>
                   <span className="lbl">Teléfono / WhatsApp</span>
                   <span className="val">
-                    <a href="https://wa.me/523112794209" target="_blank" rel="noopener noreferrer">
-                      311 279 4209
+                    <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      {SITE.phone}
                     </a>
                   </span>
                 </div>
@@ -303,8 +302,8 @@ export default function Home() {
                 <div>
                   <span className="lbl">Correo</span>
                   <span className="val">
-                    <a href="mailto:abraxis@axis-ab.com">
-                      abraxis@axis-ab.com
+                    <a href={`mailto:${SITE.email}`}>
+                      {SITE.email}
                     </a>
                   </span>
                 </div>
@@ -312,7 +311,7 @@ export default function Home() {
               <div className="contact-item">
                 <div>
                   <span className="lbl">Ubicación</span>
-                  <span className="val">Tepic, Nayarit — servicio en toda la república</span>
+                  <span className="val">{SITE.location}</span>
                 </div>
               </div>
               <p className="contact-response">Respondemos por WhatsApp o correo, normalmente el mismo día hábil.</p>

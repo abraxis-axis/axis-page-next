@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { SITE } from '@/data/site';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,7 @@ export default function Header() {
         </nav>
         <Link
           className="btn btn-primary"
-          href="https://wa.me/5213111021576"
+          href={SITE.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -111,7 +112,7 @@ export default function Header() {
         ))}
         <Link
           className="btn btn-primary"
-          href="https://wa.me/5213111021576"
+          href={SITE.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
         >

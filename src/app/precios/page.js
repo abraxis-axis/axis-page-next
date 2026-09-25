@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ImageSpot from '@/components/ImageSpot';
+import { SITE, waLink } from '@/data/site';
 
 export const metadata = {
   title: "Planes de Inversión — Axis",
@@ -38,7 +39,7 @@ export default function Precios() {
                 <li>Contrato por 12 meses</li>
               </ul>
               <a className="btn btn-primary pricing-btn"
-                href="https://wa.me/523112794209?text=Hola%2C%20me%20interesa%20el%20Plan%20Esencial"
+                href={waLink('Hola, me interesa el Plan Esencial')}
                 target="_blank" rel="noopener noreferrer">Elegir Esencial</a>
             </div>
 
@@ -59,7 +60,7 @@ export default function Precios() {
                 <li>Landing page incluida</li>
               </ul>
               <a className="btn btn-accent pricing-btn"
-                href="https://wa.me/523112794209?text=Hola%2C%20me%20interesa%20el%20Plan%20Pro" target="_blank"
+                href={waLink('Hola, me interesa el Plan Pro')} target="_blank"
                 rel="noopener noreferrer">Elegir Pro</a>
             </div>
 
@@ -81,7 +82,7 @@ export default function Precios() {
                 <li>Cotización según tu proyecto</li>
               </ul>
               <a className="btn btn-primary pricing-btn"
-                href="https://wa.me/523112794209?text=Hola%2C%20me%20interesa%20cotizar%20un%20Proyecto%20Personalizado"
+                href={waLink('Hola, me interesa cotizar un Proyecto Personalizado')}
                 target="_blank" rel="noopener noreferrer">Cotizar mi proyecto</a>
             </div>
 
@@ -178,20 +179,18 @@ export default function Precios() {
           <p className="pricing-note reveal">
             <strong>Sin letra chica.</strong> Precios en pesos mexicanos (MXN). Los planes de suscripción incluyen
             soporte técnico y un análisis detallado de procesos antes de iniciar. ¿Tienes dudas? <a
-              href="https://wa.me/523112794209" target="_blank" rel="noopener noreferrer"
+              href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer"
               style={{ color: 'var(--blue-500)', fontWeight: 600, textDecoration: 'none' }}>Escríbenos por WhatsApp</a> y
             con gusto te asesoramos.
           </p>
 
-          <ImageSpot banner label="Imagen: ejemplo de resultados" />
-
-          <div className="services-cta reveal">
+          <div className="services-cta">
             <div className="eyebrow">¿Listo para empezar?</div>
             <h2>No encuentras el plan que buscas</h2>
             <p>Cuéntanos qué necesita tu empresa y armamos una cotización a tu medida. La primera plática es sin
               costo y sin compromiso.</p>
             <div className="cta-btns">
-              <a className="btn btn-accent" href="https://wa.me/523112794209" target="_blank"
+              <a className="btn btn-accent" href={SITE.whatsappUrl} target="_blank"
                 rel="noopener noreferrer">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path

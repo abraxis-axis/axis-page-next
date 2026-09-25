@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import ScrollRevealObserver from "@/components/ScrollRevealObserver";
+import { SITE } from "@/data/site";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -27,19 +28,19 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: "Axis — Páginas web y apps con AppSheet para tu empresa",
+  title: `${SITE.name} — Páginas web y apps con AppSheet para tu empresa`,
   description: "Diseñamos páginas web y aplicaciones con AppSheet para pymes de México. Digitaliza tu negocio con procesos a la medida: agenda de citas, inventario, automatización y más.",
-  metadataBase: new URL("https://axis-ab.com"),
+  metadataBase: new URL(SITE.url),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    title: "Axis — Páginas web y apps con AppSheet",
+    title: `${SITE.name} — Páginas web y apps con AppSheet`,
     description: "Conectamos procesos. Impulsamos resultados. Páginas web y aplicaciones a la medida para pymes de México.",
-    url: "https://axis-ab.com",
+    url: SITE.url,
     locale: "es_MX",
-    siteName: "Axis",
+    siteName: SITE.name,
     images: [
       {
         url: "/imagenes/og-image.png",
@@ -51,10 +52,33 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Axis — Páginas web y apps con AppSheet",
+    title: `${SITE.name} — Páginas web y apps con AppSheet`,
     description: "Conectamos procesos. Impulsamos resultados. Páginas web y aplicaciones a la medida para pymes de México.",
     images: ["/imagenes/og-image.png"],
   },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SITE.name,
+  url: SITE.url,
+  email: SITE.email,
+  telephone: SITE.telephone,
+  image: `${SITE.url}/imagenes/og-image.png`,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tepic",
+    addressRegion: "Nayarit",
+    addressCountry: "MX",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 21.508921,
+    longitude: -104.895056,
+  },
+  areaServed: "Mexico",
 };
 
 export default function RootLayout({ children }) {
@@ -73,6 +97,10 @@ export default function RootLayout({ children }) {
         <WhatsAppFloat />
         <ScrollRevealObserver />
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
       </body>
     </html>
   );
